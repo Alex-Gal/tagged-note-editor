@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {ChangeEvent, FC, useState} from 'react';
 import './App.css';
+import { ListItem } from './components/ListItem';
 
-function App() {
+const App: FC = () => {
+  const [note, setNote] = useState<string>('')
+  const [tag, setTag] = useState<string>('')
+  const [notesList, setNotesList] = useState<string[]>([])
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) : void => {
+    setNote(event.target.value)
+  }
+
+  const addNote = () : void => {
+    setNotesList([...notesList, note])
+    setNote('')
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">
+        <div className="inputContainer">
+          <input 
+            type="text" 
+            placeholder='Введите текст' 
+            value={note}
+            name='note' 
+            onChange={handleChange}/>
+          <input 
+            type="text" 
+            placeholder='Поиск по тегу' 
+            value={tag}
+            name='filter' 
+            onChange={handleChange}/>
+        </div>
+        <button onClick={addNote}>Добавить</button>
+      </div>
+      <div className="notesList">
+        {notesList.map((note: string, key: number) => {
+          return <ListItem key={key} note={note}/>
+        })}
+      </div>
     </div>
   );
 }
