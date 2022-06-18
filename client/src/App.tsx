@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import './App.css';
 import { ListItem } from './components/ListItem';
