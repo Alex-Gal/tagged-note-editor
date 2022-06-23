@@ -16,14 +16,9 @@ const App: FC = () => {
   };
 
   const deleteNote = (selectedNote: INotes): void => {
-    const selectedId = selectedNote.id
-
-    const newTasks = notes.filter((note) => note.id !== selectedId);
-    setNotes(newTasks);
-
-
-    console.log(selectedNote.id);
-
+    const selectedId = selectedNote.id;
+    const newNotes = notes.filter((note) => note.id !== selectedId);
+    setNotes(newNotes);
   }
 
   return (
