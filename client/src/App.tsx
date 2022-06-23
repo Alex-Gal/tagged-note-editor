@@ -5,12 +5,13 @@ import axios from 'axios';
 // import db from '../../server/db.json';
 
 import './App.css';
+import { NavBar } from './components/NavBar/NavBar';
 
 const App: FC = () => {
   const [notes, setNotes] = useState<INotes[]>([])
 
   useEffect(() => {
-
+    fetchNotes()
   }, [])
 
   async function fetchNotes() {
@@ -22,9 +23,14 @@ const App: FC = () => {
     }
   }
 
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  }
+
   return (
     <div>
       <div>
+        <NavBar notes={notes} inputHandler={inputHandler} />
         <NotesList notes={notes} />
       </div>
     </div>

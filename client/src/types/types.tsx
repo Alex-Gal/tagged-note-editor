@@ -9,4 +9,5 @@ export interface INotes {
     id: number;
     title: string;
     completed: string;
+    // inputHandler: () => React.ChangeEvent<HTMLInputElement>;
 }
