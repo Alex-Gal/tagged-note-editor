@@ -7,23 +7,48 @@ interface NotesListProps {
 }
 
 export const NavBar: FC<NotesListProps> = ({ notes, addNewNote }) => {
-    const [inputValue, setInputValue] = useState<string>('') 
+    const [inputValue, setInputValue] = useState<string>('');
+    
+    const [count, setCount] = useState<number>(1);
+    const [tagArray, setTagArray] = useState<Array<string>>([]);
+    const [uniqueTagArray, setUniqueTagArray] = useState<Array<string>>([]);
+
 
     const inputValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value)
     }    
 
     const addNewNoteHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const tags = uniqueTagArray.join(' ')
         addNewNote({
             id: Date.now(),
             note: inputValue,
-            tag: '#fffff'
+            tag: tags
         })
     }
 
+    const tag = (e:string) => {
+        if(e[e.length - count] === '#'){
+            setCount(count + 1);
+            if(e[e.length - 1] === ' '){
+                setTagArray([...tagArray, e.slice(e.length - count, e.length - 1)])
+                setCount(1);
+            }
+        }
+        let uniqueArray = tagArray.filter(function(item, pos) {
+            return tagArray.indexOf(item) === pos;
+        })
+
+        setUniqueTagArray(uniqueArray)
+    }
+
     return (
-        <div>
-            <input onChange={inputValueHandler} type="text" />
+        <div className='nav-bar'>
+            <input onChange={(e) => {
+                inputValueHandler(e);
+                tag(e.target.value);
+            }}
+        type="text" />
             <button onClick={addNewNoteHandler}>Add Note</button>
         </div>
     )

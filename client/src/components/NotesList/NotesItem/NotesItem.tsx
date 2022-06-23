@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react"
+import React, { FC } from "react"
 import { INotes } from "../../../types/types"
 
 interface NotesItemProps {
@@ -13,6 +13,7 @@ export const NotesItem: FC<NotesItemProps> = ({ note, deleteNote }) => {
       <div className='lits-item__content'>
         <span>{note.note}</span>
         <span>{note.id}</span> 
+        <span style={{marginLeft:'15px'}}>{note.tag}</span> 
         <button onClick={() => deleteNote(note)}>X</button>
       </div>
     </div>

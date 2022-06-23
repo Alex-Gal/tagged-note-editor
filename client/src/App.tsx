@@ -1,10 +1,11 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react';
-import { NotesList } from './components/NotesList/NotesList';
+import React, { FC, useState } from 'react';
 import { INotes } from './types/types';
-import axios from 'axios';
-
-import './App.css';
+import { NotesList } from './components/NotesList/NotesList';
 import { NavBar } from './components/NavBar/NavBar';
+// import axios from 'axios';
+
+import './reset.scss';
+import './App.scss';
 
 const App: FC = () => {
   const [notes, setNotes] = useState<INotes[]>([])
@@ -21,9 +22,10 @@ const App: FC = () => {
     setNotes(newNotes);
   }
 
+
   return (
-    <div>
-      <div>
+    <div className='App'>
+      <div className='header'>
         <NavBar notes={notes} addNewNote={addNewNote} />
         <NotesList notes={notes} deleteNote={deleteNote} />
       </div>
@@ -32,6 +34,8 @@ const App: FC = () => {
 }
 
 export default App;
+
+
 
   // useEffect(() => {
   //   fetchNotes()
