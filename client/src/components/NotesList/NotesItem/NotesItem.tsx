@@ -1,11 +1,6 @@
 import React, { FC, useState } from "react"
 import { INotes } from "../../../types/types"
 
-// interface NotesItemProps {
-//   note: INotes;
-//   deleteNote: (note: INotes) => void;
-// }
-
 interface NotesItemProps {
   note: INotes;
   deleteNote: (note: INotes) => void;

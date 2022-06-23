@@ -28,13 +28,3 @@ export const NavBar: FC<NotesListProps> = ({ notes, addNewNote }) => {
         </div>
     )
 }
-
-
-    // addNewNote: (note: React.MouseEvent<HTMLButtonElement>) => void;
-
-        // const {name, important, active = true} = no;
-
-        // addNewNote({
-        //     id: Date.now(),
-        //     title: title
-        // });
