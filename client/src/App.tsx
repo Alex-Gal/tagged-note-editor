@@ -2,35 +2,23 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { NotesList } from './components/NotesList/NotesList';
 import { INotes } from './types/types';
 import axios from 'axios';
-// import db from '../../server/db.json';
 
 import './App.css';
 import { NavBar } from './components/NavBar/NavBar';
 
 const App: FC = () => {
   const [notes, setNotes] = useState<INotes[]>([])
-
-  useEffect(() => {
-    fetchNotes()
-  }, [])
-
-  async function fetchNotes() {
-    try {
-      const response = await axios.get<INotes[]>('https://jsonplaceholder.typicode.com/todos')
-      setNotes(response.data)
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  }
+  
+  const addNewNote = (newNote: INotes): void => {
+    const newNotes = [...notes];
+    newNotes.push(newNote);
+    setNotes(newNotes);
+  };
 
   return (
     <div>
       <div>
-        <NavBar notes={notes} inputHandler={inputHandler} />
+        <NavBar notes={notes} addNewNote={addNewNote} />
         <NotesList notes={notes} />
       </div>
     </div>
@@ -41,8 +29,28 @@ export default App;
 
 
 
+  //React.MouseEvent<HTMLButtonElement>
 
+  // useEffect(() => {
+  //   fetchNotes()
+  // }, [])
 
+  // async function fetchNotes() {
+  //   try {
+  //     const response = await axios.get<INotes[]>('https://jsonplaceholder.typicode.com/todos')
+  //     setNotes(response.data)
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // const inputHandler = (e: React.ChangeEvent<HTMLInputElement>, arr: INotes): void => {
+  //   const newArray = [...notes, arr]
+  //   setNotes(newArray)
+  // }
+
+  // console.log(notes);
+  
 
 // const App: FC = () => {
 //   const [note, setNote] = useState<INote>({null})

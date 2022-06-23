@@ -14,7 +14,7 @@ export const NotesItem: FC<NotesItemProps> = ({ note }) => {
   return (
     <div className='list-item'>
       <div className='lits-item__content'>
-        <span>{note.title}</span>
+        <span>{note.note}</span>
         <button onClick={deleteHandler}>X</button>
       </div>
     </div>

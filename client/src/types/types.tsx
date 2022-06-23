@@ -1,13 +1,13 @@
-export interface INotes1 {
+export interface INotes {
     id: number;
     note: string;
-    tag: string;
+    tag?: string;
 }
 
-export interface INotes {
-    userId: number;
+export interface INotes1 {
+    userId?: number;
     id: number;
     title: string;
-    completed: string;
-    // inputHandler: () => React.ChangeEvent<HTMLInputElement>;
+    completed?: string;
+    // inputHandler: (e: React.ChangeEvent<HTMLInputElement>) => React.ChangeEvent<HTMLInputElement>;
 }
