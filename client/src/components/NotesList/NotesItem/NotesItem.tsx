@@ -1,21 +1,24 @@
 import React, { FC, useState } from "react"
 import { INotes } from "../../../types/types"
 
+// interface NotesItemProps {
+//   note: INotes;
+//   deleteNote: (note: INotes) => void;
+// }
+
 interface NotesItemProps {
   note: INotes;
+  deleteNote: (note: INotes) => void;
 }
 
-export const NotesItem: FC<NotesItemProps> = ({ note }) => {
-
-  const deleteHandler = (e: React.MouseEvent) => {
-    console.log('deleteHandler', e.target);
-  }
+export const NotesItem: FC<NotesItemProps> = ({ note, deleteNote }) => {
 
   return (
     <div className='list-item'>
       <div className='lits-item__content'>
         <span>{note.note}</span>
-        <button onClick={deleteHandler}>X</button>
+        <span>{note.id}</span> 
+        <button onClick={() => deleteNote(note)}>X</button>
       </div>
     </div>
   )

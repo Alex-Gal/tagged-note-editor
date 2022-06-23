@@ -15,11 +15,22 @@ const App: FC = () => {
     setNotes(newNotes);
   };
 
+  const deleteNote = (selectedNote: INotes): void => {
+    const selectedId = selectedNote.id
+
+    const newTasks = notes.filter((note) => note.id !== selectedId);
+    setNotes(newTasks);
+
+
+    console.log(selectedNote.id);
+
+  }
+
   return (
     <div>
       <div>
         <NavBar notes={notes} addNewNote={addNewNote} />
-        <NotesList notes={notes} />
+        <NotesList notes={notes} deleteNote={deleteNote} />
       </div>
     </div>
   );
