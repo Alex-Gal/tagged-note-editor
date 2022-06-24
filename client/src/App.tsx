@@ -9,7 +9,7 @@ import './App.scss';
 
 const App: FC = () => {
   const [notes, setNotes] = useState<INotes[]>([])
-  
+
   const addNewNote = (newNote: INotes): void => {
     const newNotes = [...notes];
     newNotes.push(newNote);

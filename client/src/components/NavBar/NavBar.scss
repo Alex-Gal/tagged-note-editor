@@ -1,0 +1,22 @@
+.nav-bar {
+    // border: 2px solid green;
+    height: 30px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+
+
+    .nav-bar__input {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+    }
+
+    .nav-bar__btn {
+        height: 100%;
+        width: 100px;
+        background: rgb(0, 119, 255);
+        border: 1px solid grey;
+    }
+}

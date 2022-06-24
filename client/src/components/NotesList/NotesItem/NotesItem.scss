@@ -1,0 +1,40 @@
+.list-item {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+
+
+    .lits-item__content {
+        display: flex;
+        flex-wrap: wrap;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        background-color: rgb(227, 255, 127);
+        padding: 10px;
+        border: 1px solid rgb(59, 61, 57);
+        border-radius: 5px;
+        min-width: 700px;
+        max-width: 1000px;
+        margin-bottom: 10px;
+
+        .content__note {}
+
+        .content__id {}
+
+        .content__tag {}
+
+
+    }
+
+    .content__button {
+        height: 42px;
+        width: 42px;
+        background: rgb(196, 80, 80);
+        border-radius: 5px;
+        font-weight: bold;
+
+        &:hover {
+            background: rgb(179, 38, 38);
+        }
+    }
+}

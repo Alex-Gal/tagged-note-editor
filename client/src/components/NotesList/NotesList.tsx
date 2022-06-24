@@ -2,6 +2,8 @@ import React, { FC } from 'react'
 import { INotes } from '../../types/types';
 import { NotesItem } from './NotesItem/NotesItem';
 
+import './NotesList.scss'
+
 interface NotesListProps {
   notes: INotes[],
   deleteNote: (note: INotes) => void;
@@ -10,7 +12,7 @@ interface NotesListProps {
 export const NotesList: FC<NotesListProps> = ({ notes, deleteNote }) => {
 
   return (
-    <div className="List">
+    <div className="notes-list">
       {notes.map(note =>
         <NotesItem key={note.id} note={note} deleteNote={deleteNote} />
       )}
