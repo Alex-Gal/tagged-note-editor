@@ -4,47 +4,48 @@
     flex-flow: row wrap;
 
 
-    .lits-item__content {
+    .list-item__content {
         display: flex;
         flex-wrap: wrap;
         font-family: 'Roboto', sans-serif;
-        font-size: 20px;
-        background-color: rgb(227, 255, 127);
-        padding: 10px;
+        font-size: 16px;
+        background-color: rgb(186, 193, 199);
+        padding: 5px;
         border: 1px solid rgb(59, 61, 57);
-        border-radius: 5px;
-        min-width: 700px;
-        max-width: 1000px;
+        border-radius: 2px;
+        min-width: 500px;
         margin-bottom: 10px;
-
-        span {
-            padding-right: 5px;
-        }
-
-        // .content__note {
-
-        // }
-
-        // .content__id {
-        //     padding-right: 5px;
-        // }
-
-        // .content__tag {
-        //     padding-right: 5px;
-        // }
-
-
+        outline: none;
+        border: 3px solid #ccc;
+        height: 30px;
+        resize: none;
     }
 
-    .content__button {
-        height: 42px;
-        width: 42px;
+    .content__button-delete {
+        height: 46px;
+        width: 46px;
         background: rgb(196, 80, 80);
-        border-radius: 5px;
+        border-radius: 2px;
         font-weight: bold;
+        font-size: 20px;
 
         &:hover {
             background: rgb(179, 38, 38);
+        }
+    }
+
+    .content__button-edit {
+        width: 100px;
+        background: rgb(0, 119, 255);
+        border: 3px solid rgb(0, 119, 255);
+        outline: none;
+        font-size: 20px;
+        box-sizing: border-box;
+        height: 46px;
+        border: 2px solid #ccc;
+
+        &:hover {
+            border: 2px solid rgb(18, 1, 82);
         }
     }
 }

@@ -22,12 +22,30 @@ const App: FC = () => {
     setNotes(newNotes);
   }
 
+  const editNote = (selectedNote: INotes): void => {
+    console.log('selectedNote.id', selectedNote.id);
+    console.log('selectedNote.note', selectedNote.note);
+
+    const newNotes = notes.map((item) => {
+      const { id, note } = item;
+      console.log('id', id);
+      console.log('note', note);
+
+      return {
+        ...item,
+        note: id === selectedNote.id ? selectedNote.note : note
+      };
+    });
+    setNotes(newNotes);
+  }
+
+  console.log(notes);
 
   return (
     <div className='App'>
       <div className='header'>
         <NavBar notes={notes} addNewNote={addNewNote} />
-        <NotesList notes={notes} deleteNote={deleteNote} />
+        <NotesList notes={notes} deleteNote={deleteNote} editNote={editNote} />
       </div>
     </div>
   );

@@ -7,14 +7,15 @@ import './NotesList.scss'
 interface NotesListProps {
   notes: INotes[],
   deleteNote: (note: INotes) => void;
+  editNote: (note: INotes) => void;
 }
 
-export const NotesList: FC<NotesListProps> = ({ notes, deleteNote }) => {
+export const NotesList: FC<NotesListProps> = ({ notes, deleteNote, editNote }) => {
 
   return (
     <div className="notes-list">
       {notes.map(note =>
-        <NotesItem key={note.id} note={note} deleteNote={deleteNote} />
+        <NotesItem key={note.id} note={note} deleteNote={deleteNote} editNote={editNote} />
       )}
     </div>
   )

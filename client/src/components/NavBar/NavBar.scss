@@ -1,22 +1,42 @@
+@mixin nav-style {
+    outline: none;
+    font-size: 20px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
 .nav-bar {
-    // border: 2px solid green;
     height: 30px;
     width: 500px;
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
-
+    font-family: 'Roboto', sans-serif;
+    width: 700px;
+    height: 40px;
 
     .nav-bar__input {
-        box-sizing: border-box;
-        height: 100%;
         width: 100%;
+        background-color: transparent;
+        border: 3px solid #ccc;
+        padding: 10px;
+        margin-right: 5px;
+        @include nav-style;
+
+        &:focus {
+            border: 3px solid #555;
+        }
     }
 
     .nav-bar__btn {
-        height: 100%;
-        width: 100px;
+        width: 130px;
         background: rgb(0, 119, 255);
-        border: 1px solid grey;
+        border: 3px solid rgb(0, 119, 255);
+        @include nav-style;
+
+        &:hover {
+            border: 3px solid rgb(18, 1, 82);
+        }
     }
 }
